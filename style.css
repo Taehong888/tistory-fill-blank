@@ -1,0 +1,64 @@
+/* ──────────────────────────────────────────── */
+/*  빈칸 채우기 전용 스타일 (tistory용)        */
+/* ──────────────────────────────────────────── */
+.fill-blank {
+  max-width: 600px;
+  margin: 20px auto;
+  font-family: "Noto Sans KR", sans-serif;
+  padding: 10px;
+  border: 1px solid #e0e0e0;
+  border-radius: 6px;
+  background-color: #fafafa;
+}
+
+.fill-blank p {
+  line-height: 1.8;
+  font-size: 16px;
+}
+
+.fill-blank input[type="text"] {
+  font-size: 16px;
+  padding: 2px 6px;
+  margin: 0 4px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  min-width: 50px;
+  transition: border 0.2s;
+}
+
+.fill-blank .correct {
+  border: 2px solid #4caf50 !important;
+}
+
+.fill-blank .incorrect {
+  border: 2px solid #f44336 !important;
+}
+
+.fill-blank .blank {
+  border: 2px solid #ff9800 !important;
+}
+
+.fill-blank button {
+  margin-top: 15px;
+  padding: 8px 14px;
+  font-size: 14px;
+  border: none;
+  border-radius: 4px;
+  background-color: #2196f3;
+  color: white;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.fill-blank button:hover {
+  opacity: 0.9;
+}
+
+.fill-blank .hide {
+  display: none !important;
+}
+
+.fill-blank .result {
+  margin-top: 15px;
+  font-weight: bold;
+}
