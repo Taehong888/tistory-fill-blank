@@ -1,64 +1,118 @@
-/* ──────────────────────────────────────────── */
-/*  빈칸 채우기 전용 스타일 (tistory용)        */
-/* ──────────────────────────────────────────── */
-.fill-blank {
-  max-width: 600px;
-  margin: 20px auto;
-  font-family: "Noto Sans KR", sans-serif;
-  padding: 10px;
-  border: 1px solid #e0e0e0;
-  border-radius: 6px;
-  background-color: #fafafa;
+/* ────────────────────────────────────────────── */
+/* 1) 빈칸(<span>) 영역의 기본 스타일              */
+/* ────────────────────────────────────────────── */
+.blank {
+  display: inline-block;
+  min-width: 80px;              /* 빈칸의 너비 (필요에 따라 조절) */
+  border-bottom: 2px solid #666; /* 밑줄로 빈칸을 표시 */
+  margin: 0 4px;                /* 좌우 여백 */
+  padding: 2px 4px;             /* 약간의 패딩 */
+  vertical-align: bottom;
+  cursor: pointer;              /* 클릭 가능한 인상 */
+  color: transparent;           /* 빈칸 안의 텍스트(정답)는 투명 처리 */
+  background-color: #f9f9f9;    /* 연한 회색 배경으로 빈칸 표시 */
+  transition: background-color 0.2s, border-color 0.2s;
 }
 
-.fill-blank p {
-  line-height: 1.8;
-  font-size: 16px;
-}
-
-.fill-blank input[type="text"] {
-  font-size: 16px;
-  padding: 2px 6px;
+/* ────────────────────────────────────────────── */
+/* 2) 입력란(<input>)으로 바뀌었을 때 스타일      */
+/* ────────────────────────────────────────────── */
+.fill-input {
+  font-size: 14px;
+  padding: 2px 4px;
   margin: 0 4px;
   border: 1px solid #ccc;
   border-radius: 4px;
-  min-width: 50px;
-  transition: border 0.2s;
+  min-width: 80px;              /* 빈칸과 비슷한 너비 유지 */
 }
 
-.fill-blank .correct {
-  border: 2px solid #4caf50 !important;
+/* ────────────────────────────────────────────── */
+/* 3) 정답(맞힌 후)으로 표시될 때 스타일          */
+/* ────────────────────────────────────────────── */
+.correct-blank {
+  display: inline-block;
+  min-width: 80px;
+  border-bottom: 2px solid #4caf50; /* 초록색 밑줄 */
+  margin: 0 4px;
+  padding: 2px 4px;
+  color: #4caf50;                  /* 초록색 글자 */
+  font-weight: bold;
+  background-color: #f0fff0;       /* 연한 녹색 배경 */
 }
 
-.fill-blank .incorrect {
-  border: 2px solid #f44336 !important;
+/* ────────────────────────────────────────────── */
+/* 4) 오답(틀린 후)으로 표시될 때 스타일          */
+/* ────────────────────────────────────────────── */
+.incorrect-blank {
+  display: inline-block;
+  min-width: 80px;
+  border-bottom: 2px solid #f44336; /* 빨간색 밑줄 */
+  margin: 0 4px;
+  padding: 2px 4px;
+  color: #f44336;                    /* 빨간색 글자 */
+  font-weight: bold;
+  background-color: #fff0f0;         /* 연한 빨간색 배경 */
+  text-decoration: line-through;     /* 가로줄로 오답 표시 */
 }
 
-.fill-blank .blank {
-  border: 2px solid #ff9800 !important;
-}
-
-.fill-blank button {
-  margin-top: 15px;
-  padding: 8px 14px;
-  font-size: 14px;
-  border: none;
-  border-radius: 4px;
-  background-color: #2196f3;
-  color: white;
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-
-.fill-blank button:hover {
-  opacity: 0.9;
-}
-
-.fill-blank .hide {
+/* ────────────────────────────────────────────── */
+/* 5) “정답 보기” 버튼이 숨겨져야 할 때              */
+/* ────────────────────────────────────────────── */
+.hide {
   display: none !important;
 }
 
-.fill-blank .result {
-  margin-top: 15px;
-  font-weight: bold;
+/* ────────────────────────────────────────────── */
+/* 6) “오답노트” 팝업 혹은 메시지 박스 스타일       */
+/*     간단히 alert 대신 커스텀 팝업을 띄우고 싶다면 */
+/*     여기서 추가 스타일 정의 가능               */
+/* ────────────────────────────────────────────── */
+
+/* 버튼 기본 스타일 */
+button {
+  padding: 6px 12px;
+  font-size: 14px;
+  margin-right: 8px;
+  background-color: #2196f3;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: #1976d2;
+}
+
+/* “오답노트” 알림창 예시 (필요 시 HTML+CSS를 더 추가하여 커스텀 가능) */
+#wrong-note-popup {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 300px;
+  background-color: white;
+  border: 2px solid #666;
+  border-radius: 6px;
+  padding: 16px;
+  box-shadow: 0px 4px 8px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+#wrong-note-popup h3 {
+  margin-top: 0;
+  font-size: 18px;
+  color: #f44336; /* 빨간 제목 */
+}
+#wrong-note-popup ul {
+  list-style: disc inside;
+  margin: 8px 0;
+  padding-left: 16px;
+}
+#wrong-note-popup button.close-popup {
+  margin-top: 12px;
+  background-color: #f44336;
+}
+#wrong-note-popup button.close-popup:hover {
+  background-color: #d32f2f;
 }
