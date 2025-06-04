@@ -1,5 +1,5 @@
 /* ───────────────────────────────────────────────────────── */
-/* 1) 기본 테이블 스타일 (왼쪽 헤더 글씨 Bold 제거 포함)       */
+/* 1) 기본 테이블 스타일 (왼쪽 헤더 글씨는 볼드가 아닌 노말로)   */
 /* ───────────────────────────────────────────────────────── */
 table {
   width: 100%;
@@ -15,83 +15,77 @@ th, td {
   font-size: 14px;
   line-height: 1.5em;
 }
-/* 왼쪽 헤더(th)의 기본 bold 제거 */
+/* th(왼쪽 헤더)의 기본 볼드 해제 */
 th {
   font-weight: normal;
 }
-/* ───────────────────────────────────────────────────────── */
 
 /* ───────────────────────────────────────────────────────── */
-/* 2) 빈칸(<span class="blank">)의 기본 모양 (연한 녹색 박스)    */
+/* 2) “빈칸”(<span class="blank">) 기본 상태 스타일            */
 /* ───────────────────────────────────────────────────────── */
-.blank {
+span.blank {
   display: inline-block;
-  /* min-width: 80px;        기존 최소 너비 제거 → 글자수에 따라 자동 조정 */
-  padding: 0 4px;             /* 수직 패딩 0, 좌우만 약간 여백 */
-  background-color: #e0f9e0;  /* 연한 녹색 배경 */
-  border-radius: 4px;         /* 모서리 둥글게 */
-  text-align: center;         /* 텍스트 중앙 정렬 */
-  line-height: 1em;           /* 텍스트 높이와 동일하게 */
-  color: transparent;         /* 정답 텍스트는 투명 처리 */
-  font-size: 14px;            /* 폰트 크기 */
-  vertical-align: middle;     /* 셀 안에서 수직 중앙 정렬 */
-  cursor: pointer;            /* 커서가 클릭 가능 커서로 변경 */
+  padding: 0 4px;                /* 좌우 여백만 주어 글자 수에 따라 자연스럽게 늘어남 */
+  background-color: #e0f9e0;      /* 연한 녹색 배경 */
+  border-radius: 4px;             /* 모서리 둥글게 */
+  text-align: center;             /* 내부 텍스트 중앙 정렬 */
+  line-height: 1em;               /* 박스 높이를 글자 높이와 같게 */
+  font-size: 14px;                /* 폰트 크기 */
+  vertical-align: middle;         /* 테이블 셀 내 수직 중앙 정렬 */
+  color: transparent;             /* 정답 텍스트는 투명 처리 */
+  border: 1px solid #b2ddb2;      /* 연한 경계선(optional) */
+  cursor: pointer;                /* 클릭 가능한 느낌 */
   transition: background-color 0.2s, border-color 0.2s;
-  border: 1px solid #b2ddb2;  /* 연한 경계선 (optional) */
 }
 
 /* ───────────────────────────────────────────────────────── */
-/* 3) 입력 모드(<input class="fill-input">) 모양               */
+/* 3) “입력 모드” <input class="fill-input"> 스타일           */
 /* ───────────────────────────────────────────────────────── */
-.fill-input {
+input.fill-input {
   display: inline-block;
-  /* width: 80px;         기존 고정 너비 제거 → 자동으로 내용에 맞게 늘어남 */
-  height: 1em;               /* 텍스트 높이와 동일하게 */
-  padding: 0 4px;            /* 좌우 패딩만 줘서 텍스트 들어갈 공간 확보 */
+  padding: 0 4px;
   font-size: 14px;
-  line-height: 1em;          /* 텍스트 중심 정렬 */
-  text-align: center;        /* 입력값 중앙 정렬 */
-  border: 1px solid #888;    /* 회색 경계선 */
-  border-radius: 4px;        /* 모서리 둥글게 */
-  background-color: #f0fff0; /* 연한 입력 배경 */
-  vertical-align: middle;    /* 셀 안에서 수직 중앙 정렬 */
+  line-height: 1em;               /* 텍스트 높이와 동일하게 */
+  text-align: center;             /* 입력값 중앙 정렬 */
+  border: 1px solid #888;         /* 어두운 회색 경계 */
+  border-radius: 4px;
+  background-color: #f0fff0;      /* 살짝 더 연한 녹색 배경 */
+  vertical-align: middle;
 }
 
 /* ───────────────────────────────────────────────────────── */
-/* 4) 제출 후 “정답인 빈칸” (<span class="correct-blank">) 모양 */
+/* 4) “제출 후 정답” <span class="correct-blank"> 스타일  */
 /* ───────────────────────────────────────────────────────── */
-.correct-blank {
+span.correct-blank {
   display: inline-block;
-  /* min-width: 80px;      기존 최소 너비 제거 → 글자 수에 따라 자동 조정 */
-  padding: 0 4px;              /* 수직 패딩 0, 좌우만 여백 */
-  background-color: #ccffcc;   /* 선명한 연녹색 배경 */
-  border-radius: 4px;          
-  text-align: center;          
-  line-height: 1em;            /* 텍스트 높이와 동일하게 */
+  padding: 0 4px;
   font-size: 14px;
-  vertical-align: middle;      
-  border: 1px solid #4caf50;   /* 초록색 테두리 */
-  color: #2e7d32;              /* 짙은 초록색 글자 */
+  line-height: 1em;
+  text-align: center;
+  background-color: #ccffcc;      /* 선명한 연녹색 배경 */
+  border-radius: 4px;
+  border: 1px solid #4caf50;      /* 초록색 테두리 */
+  color: #2e7d32;                 /* 진한 초록 텍스트 */
   font-weight: bold;
+  vertical-align: middle;
 }
 
 /* ───────────────────────────────────────────────────────── */
-/* 5) 제출 후 “오답인 빈칸” (<span class="incorrect-blank">) 모양  */
+/* 5) “제출 후 오답” <span class="incorrect-blank"> 스타일 */
 /* ───────────────────────────────────────────────────────── */
-.incorrect-blank {
+span.incorrect-blank {
   display: inline-block;
-  /* min-width: 80px;      기존 최소 너비 제거 → 글자 수에 따라 자동 조정 */
-  padding: 0 4px;             /* 수직 패딩 0, 좌우 여백 */
-  background-color: #ffebee;  /* 약간 연한 분홍/빨강 배경 */
-  border-radius: 4px;         
-  text-align: center;         
-  line-height: 1em;           /* 텍스트 높이와 동일하게 */
+  padding: 0 4px;
   font-size: 14px;
-  vertical-align: middle;     
-  border: 1px solid #f44336;  /* 빨간색 테두리 */
-  color: #b71c1c;             /* 진한 빨간색 글자 */
+  line-height: 1em;
+  text-align: center;
+  background-color: #ffebee;      /* 연한 분홍/빨강 배경 */
+  border-radius: 4px;
+  border: 1px solid #f44336;      /* 빨간색 테두리 */
+  color: #b71c1c;                 /* 진한 빨강 텍스트 */
   font-weight: bold;
-  text-decoration: line-through; /* 가로줄로 오답 표시 */
+  text-decoration: line-through;  /* 가로줄로 오답 표시 */
+  vertical-align: middle;
 }
 
 /* ───────────────────────────────────────────────────────── */
@@ -102,14 +96,14 @@ th {
 }
 
 /* ───────────────────────────────────────────────────────── */
-/* 7) “오답노트” 팝업 박스 스타일 (선택적으로 사용)           */
+/* 7) “오답노트” 팝업 박스 스타일 (사용 시 참고)             */
 /* ───────────────────────────────────────────────────────── */
 #wrong-note-popup {
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  min-width: 320px;
+  min-width: 300px;
   background-color: #fff;
   border: 2px solid #666;
   border-radius: 6px;
@@ -141,19 +135,42 @@ th {
 }
 
 /* ───────────────────────────────────────────────────────── */
-/* 8) 버튼 기본 스타일 (fill-toggle, wrong-note 등)           */
+/* 8) “빈칸 채우기 모드” & “오답노트” 버튼 스타일            */
+/*    (버튼 내부 텍스트가 투명해지지 않도록, 박스 형태로 클릭 가능) */
 /* ───────────────────────────────────────────────────────── */
-button {
+button#fill-toggle,
+button#wrong-note {
+  display: inline-block;
   padding: 6px 12px;
   font-size: 14px;
-  margin-right: 8px;
-  background-color: #2196f3;
-  color: white;
+  font-weight: bold;
+  color: #fff;                   /* 흰색 글씨 */
+  background-color: #2196f3;     /* 파란색 배경 */
+  border: 1px solid #1976d2;     /* 진한 파란색 테두리 */
+  border-radius: 4px;            /* 모서리 둥글게 */
+  cursor: pointer;               /* 클릭 커서 */
+  text-align: center;
+  margin-right: 8px;             /* 버튼 간 간격 */
+  transition: background-color 0.2s;
+}
+button#fill-toggle:hover,
+button#wrong-note:hover {
+  background-color: #1976d2;    /* 호버 시 더 진한 파란색 */
+}
+
+/* ───────────────────────────────────────────────────────── */
+/* 9) 페이지 내 다른 버튼이 있다면 필요 시 별도 스타일 추가 */
+/* ───────────────────────────────────────────────────────── */
+/* 예를 들어, 팝업 닫기 버튼도 파란색이 아닌 빨간색으로 하려면: */
+button.close-popup {
+  padding: 6px 12px;
+  font-size: 14px;
+  color: #fff;
+  background-color: #f44336;
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  transition: background-color 0.2s;
 }
-button:hover {
-  background-color: #1976d2;
+button.close-popup:hover {
+  background-color: #d32f2f;
 }
